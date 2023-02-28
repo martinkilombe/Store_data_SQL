@@ -9,5 +9,17 @@ ADD COLUMN Date_Difference INTEGER;
 UPDATE data_store.orders 
 SET Date_difference = datediff(data_store.orders.Ship_Date,data_store.orders.Order_Date);
 
-#Converting it to the m/d/yyyy
+#Converting it to the m/d/yyyymfor the two columns
+UPDATE data_store.orders 
+SET data_store.orders.Order_Date = STR_TO_DATE(data_store.orders.Order_Date, '%d/%m/%Y');
+
+#Calculate the Gross revenue AND create a new column for this
+ALTER TABLE data_store.orders
+ADD COLUMN Gross_revenue INTEGER;
+
+#Updating the Gross_revenue table
+UPDATE data_store.orders
+SET data_store.orders.Gross_revenue = sales*Quantity;
+
+
 
