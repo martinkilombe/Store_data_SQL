@@ -32,6 +32,14 @@ SUM(CASE WHEN Profit <0 THEN Profit ELSE 0 END) AS total_loss,
 SUM(CASE WHEN Profit >0 THEN Profit ELSE 0 END) AS total_profit
 FROM data_store.orders;
 
+#Create a table that calulates the sales after discount (sales_discount)
+ALTER TABLE data_store.orders
+ADD COLUMN sales_Discount INTEGER;
+
+UPDATE data_store.orders
+SET data_store.orders.sales_Discount = (CASE WHEN Discount = 0 THEN 1 * Sales
+ELSE Discount*Sales END);
+
 
 
 
