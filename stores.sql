@@ -15,7 +15,8 @@ ADD COLUMN Expenses integer;
 UPDATE data_store.orders
 SET data_store.orders.Expenses = data_store.orders.Gross_revenue - data_store.orders.Profit;
 
-
-
-
-
+#Using OUTER Join to combine the rows from the returns table
+SELECT Row_ID,Returned 
+FROM data_store.orders
+	FULL JOIN data_store.returns
+		ON data_store.orders.Order_ID = data_store.returns.Order_ID;
