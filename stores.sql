@@ -21,6 +21,19 @@ FROM data_store.orders
 	FULL JOIN data_store.returns
 		ON data_store.orders.Order_ID = data_store.returns.Order_ID;
 
-#Shwing the products that had loss in the category and sub-caregory section
+#Query the products that had loss in the category and sub-caregory section and found in the USA
 SELECT Order_ID, Customer_ID, Product_ID, Category, Sub_Category,Profit FROM data_store.orders
-WHERE Profit<0;
+WHERE Profit<0 AND Country LIKE "%United States%"
+ORDER BY PROFIT DESC;
+
+#Query the table for the total profit and loss and display them seperately
+SELECT 
+SUM(CASE WHEN Profit <0 THEN Profit ELSE 0 END) AS total_loss,
+SUM(CASE WHEN Profit >0 THEN Profit ELSE 0 END) AS total_profit
+FROM data_store.orders;
+
+
+
+
+
+
