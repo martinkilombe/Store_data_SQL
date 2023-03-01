@@ -20,3 +20,7 @@ SELECT Row_ID,Returned
 FROM data_store.orders
 	FULL JOIN data_store.returns
 		ON data_store.orders.Order_ID = data_store.returns.Order_ID;
+
+#Shwing the products that had loss in the category and sub-caregory section
+SELECT Order_ID, Customer_ID, Product_ID, Category, Sub_Category,Profit FROM data_store.orders
+WHERE Profit<0;
