@@ -40,8 +40,8 @@ UPDATE data_store.orders
 SET data_store.orders.sales_Discount = (CASE WHEN Discount = 0 THEN 1 * Sales
 ELSE Discount*Sales END);
 
-
-
-
+#Query the table for Range of the sales and profits 
+SELECT MAX(data_store.orders.sales) - MIN(data_store.orders.Sales) as Sales_range, MAX(data_store.orders.Profit)-MIN(data_store.orders.Profit) AS Profit_range 
+FROM data_store.orders;
 
 
