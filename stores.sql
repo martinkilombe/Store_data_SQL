@@ -41,7 +41,28 @@ SET data_store.orders.sales_Discount = (CASE WHEN Discount = 0 THEN 1 * Sales
 ELSE Discount*Sales END);
 
 #Query the table for Range of the sales and profits 
-SELECT MAX(data_store.orders.sales) - MIN(data_store.orders.Sales) as Sales_range, MAX(data_store.orders.Profit)-MIN(data_store.orders.Profit) AS Profit_range 
+SELECT MAX(data_store.orders.sales) - MIN(data_store.orders.Sales) as Sales_range, MAX(data_store.orders.Profit)-MIN(data_store.orders.Profit) AS Profit_range, M 
 FROM data_store.orders;
 
+#Query the table for the average values of sales,Profit,Gross_revenue and use case statement to state whether the column values are above or below average
+SELECT data_store.orders.Sales, 
+data_store.orders.Profit,
+data_store.orders.Gross_Revenue,
+CASE 
+	WHEN data_store.orders.Sales > AVG(data_store.orders.Sales) THEN 'Above Average Sales'
+    WHEN data_store.orders.Sales < AVG(data_store.orders.Sales) THEN 'Below Average Sales'
+    ELSE 'Average sales'
+    END AS Sales_Average,
+CASE 
+	WHEN data_store.orders.Profit > AVG(data_store.orders.Profit) THEN 'Above Average Profit'
+    WHEN data_store.orders.Profit > AVG(data_store.orders.Profit) THEN 'Below Average Profit'
+    ELSE 'Average Profit'
+    END AS Profit_Average,
+    
+CASE 
+	WHEN data_store.orders.Gross_revenue > AVG(data_store.orders.Gross_revenue) THEN 'Above Average Gross Revenue'
+    WHEN data_store.orders.Gross_revenue > AVG(data_store.orders.Gross_revenue) THEN 'Below Average Gross Revenie'
+    ELSE 'Average Gross revenue'
+	END AS Gross_revenue_Average
+    FROM data_store.orders;
 
