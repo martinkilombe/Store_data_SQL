@@ -65,5 +65,6 @@ CASE
     ELSE 'Average Gross revenue'
 	END AS Gross_revenue_Average
     FROM data_store.orders;
-#Query the table for the Order_ID with the highest sales and the lowest profit
-SELECT data_store.orders.Order_ID, data_store.orders.Sales, data_store.orders.Profit FROM data_store.orders
+#Query the table for the Order_ID with the highest sales
+SELECT Order_ID, Sales, Profit FROM data_store.orders
+WHERE Sales= (SELECT MAX(Sales) FROM data_store.orders) ;
