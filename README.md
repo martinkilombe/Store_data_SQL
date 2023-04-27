@@ -2,7 +2,8 @@
   Tableau Superstore Data
 </h1
 
-<p align="center">This Case Project contains Tableu Superstore data set. The project performing Analytics on the data set on  <b>SQL</b>.</p>
+<p align="center">This Case Project contains Tableu Superstore data set. About
+This Case Project contains Tableau Superstore data set.  <b>SQL</b>.</p>
 
 <b>Data source<b>: https://www.tableau.com/data-insights/dashboard-showcase/superstore
 
