@@ -1,5 +1,5 @@
 # <h1 align="center">
-  Forbes Global Companies in 2022
+  Tableau Superstore Data
 </h1
 
 <p align="center">This Case Project contains Tableu Superstore data set. The project performing Analytics on the data set on  <b>SQL</b>.</p>
